@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/dsos-mining-helper/static/css/main.d725c3ff.chunk.css",
-    "main.js": "/dsos-mining-helper/static/js/main.95b77f2f.chunk.js",
-    "main.js.map": "/dsos-mining-helper/static/js/main.95b77f2f.chunk.js.map",
+    "main.js": "/dsos-mining-helper/static/js/main.32298fb3.chunk.js",
+    "main.js.map": "/dsos-mining-helper/static/js/main.32298fb3.chunk.js.map",
     "runtime-main.js": "/dsos-mining-helper/static/js/runtime-main.e9052db6.js",
     "runtime-main.js.map": "/dsos-mining-helper/static/js/runtime-main.e9052db6.js.map",
     "static/js/2.b5dccf9b.chunk.js": "/dsos-mining-helper/static/js/2.b5dccf9b.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.e9052db6.js",
     "static/js/2.b5dccf9b.chunk.js",
     "static/css/main.d725c3ff.chunk.css",
-    "static/js/main.95b77f2f.chunk.js"
+    "static/js/main.32298fb3.chunk.js"
   ]
 }
