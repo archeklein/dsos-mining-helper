@@ -9,7 +9,7 @@ import {
 export const ResourceTypeSelector = (props) => {
     const { selected, onSelect } = props;
 
-    const options = ["resource", "ladder", "empty"];
+    const options = ["resource", "ladder"];
 
     const onChange = (e) => {
         onSelect(e.target.value);

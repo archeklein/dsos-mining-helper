@@ -2,22 +2,34 @@ import React from "react";
 import styled from "styled-components";
 
 const Tile = styled.div`
-    background-color: #C5D5E4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    &.active {
-        background-color: #7E6551;
+    background-color: #f6f5f4;
+    font-weight: bold;
+    font-size: 1.5em;
+
+    &.empty {
+        background-color: #fffae3;
+    }
+
+    &.resource {
+        background-color: #99e1d9;
+    }
+
+    &.ladder {
+        background-color: #f7567c;
+        color: white;
     }
 `;
 
-export const MineTile = (p) => {
-    const { hasResources, onToggle } = p;
+export const MineTile = (props) => {
+    const { resource, onClick } = props;
 
-    const props = {
-        onClick: () => {
-            console.log(hasResources);
-            onToggle();
-        },
-    };
-
-    return <Tile {...props} className={hasResources && "active"} />;
+    return (
+        <Tile onClick={onClick} className={resource}>
+            {resource !== 'none' && resource[0].toUpperCase()}
+        </Tile>
+    );
 };

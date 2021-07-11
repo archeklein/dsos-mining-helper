@@ -16,5 +16,6 @@ export const MainWrapper = styled.div`
 export const GridWrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-gap: 16px;
+    grid-template-rows: repeat(7, 1fr);
+    grid-gap: 4px;
 `;

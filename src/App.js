@@ -5,7 +5,7 @@ import { Button } from "@material-ui/core";
 import { ResourceTypeSelector } from "./components/ResourceTypeRadio";
 
 const App = () => {
-    const defaultState = Array.from({ length: 49 }, (v, i) => false);
+    const defaultState = Array.from({ length: 49 }, (v, i) => "none");
 
     const [tiles, setTiles] = useState(defaultState);
     const [currentMarker, setCurrentMarker] = useState("resource");
@@ -14,7 +14,7 @@ const App = () => {
         setTiles((prevState) => {
             return [
                 ...prevState.slice(0, id),
-                !prevState[id],
+                prevState[id] !== currentMarker ? currentMarker : "none",
                 ...prevState.slice(id + 1, prevState.length),
             ];
         });
@@ -39,8 +39,8 @@ const App = () => {
                 {tiles.map((tile, index) => (
                     <MineTile
                         key={index}
-                        hasResources={tile}
-                        onToggle={() => toggleTile(index)}
+                        resource={tile}
+                        onClick={() => toggleTile(index)}
                     />
                 ))}
             </GridWrapper>
