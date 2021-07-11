@@ -6,20 +6,20 @@ const Tile = styled.div`
     justify-content: center;
     align-items: center;
 
-    background-color: #f6f5f4;
+    background-color: #FFEEDB;
     font-weight: bold;
     font-size: 1.5em;
 
-    &.empty {
-        background-color: #fffae3;
+    &.resource {
+        background-color: #ED9B40;
     }
 
-    &.resource {
-        background-color: #99e1d9;
+    &.gem {
+        background-color: #61C9A8;
     }
 
     &.ladder {
-        background-color: #f7567c;
+        background-color: #BA3B46;
         color: white;
     }
 `;
@@ -29,7 +29,7 @@ export const MineTile = (props) => {
 
     return (
         <Tile onClick={onClick} className={resource}>
-            {resource !== 'none' && resource[0].toUpperCase()}
+            {resource !== "none" && resource[0].toUpperCase()}
         </Tile>
     );
 };
