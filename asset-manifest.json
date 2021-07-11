@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/dsos-mining-helper/static/css/main.a617e044.chunk.css",
+    "main.js": "/dsos-mining-helper/static/js/main.04ee21fb.chunk.js",
+    "main.js.map": "/dsos-mining-helper/static/js/main.04ee21fb.chunk.js.map",
+    "runtime-main.js": "/dsos-mining-helper/static/js/runtime-main.add31166.js",
+    "runtime-main.js.map": "/dsos-mining-helper/static/js/runtime-main.add31166.js.map",
+    "static/js/2.f8bd62c8.chunk.js": "/dsos-mining-helper/static/js/2.f8bd62c8.chunk.js",
+    "static/js/2.f8bd62c8.chunk.js.map": "/dsos-mining-helper/static/js/2.f8bd62c8.chunk.js.map",
+    "static/js/3.03178fe8.chunk.js": "/dsos-mining-helper/static/js/3.03178fe8.chunk.js",
+    "static/js/3.03178fe8.chunk.js.map": "/dsos-mining-helper/static/js/3.03178fe8.chunk.js.map",
+    "index.html": "/dsos-mining-helper/index.html",
+    "static/css/main.a617e044.chunk.css.map": "/dsos-mining-helper/static/css/main.a617e044.chunk.css.map",
+    "static/js/2.f8bd62c8.chunk.js.LICENSE.txt": "/dsos-mining-helper/static/js/2.f8bd62c8.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/dsos-mining-helper/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.add31166.js",
+    "static/js/2.f8bd62c8.chunk.js",
+    "static/css/main.a617e044.chunk.css",
+    "static/js/main.04ee21fb.chunk.js"
+  ]
+}
