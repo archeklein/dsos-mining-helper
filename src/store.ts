@@ -16,6 +16,10 @@ export const useFloorStore = create<FloorState>((set) => ({
     floors: (() => {
         const newFloors: (Tile | undefined)[][][] = [];
 
+        if (localStorage.getItem('floors')) {
+            return JSON.parse(localStorage.getItem('floors')!);
+        }
+
         // Create 9 floors
         for (let floor = 0; floor < 9; floor++) {
             const currentFloor: (Tile | undefined)[][] = [];
@@ -38,12 +42,14 @@ export const useFloorStore = create<FloorState>((set) => ({
             const floors = state.floors.slice();
             floors[state.currentFloor][row][col] = tile;
 
+            localStorage.setItem('floors', JSON.stringify(floors));
+
             return { ...state, floors };
         }),
     currentFloor: 0,
     setCurrentFloor: (floor) => set({ currentFloor: floor, currentTile: [0, 0] }),
     currentTile: [0, 0],
     setCurrentTile: (tile) => set({ currentTile: tile }),
-    currentTileType: tiles.nautilidae,
+    currentTileType: tiles.copper,
     setCurrentTileType: (tileType) => set({ currentTileType: tileType })
 }));

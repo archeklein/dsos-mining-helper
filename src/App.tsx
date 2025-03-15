@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useFloorStore } from './store';
-import { ConfigProvider, theme, Segmented, Layout, Flex } from 'antd';
+import { ConfigProvider, theme, Segmented, Layout, Flex, Button } from 'antd';
 import { tiles, type Tile } from './types';
 import './App.css';
 import { HTMLAttributes } from 'react';
@@ -27,13 +27,22 @@ const App = () => {
                 }}
             >
                 <Flex vertical gap={12}>
-                    <Segmented
-                        options={Array.from({ length: 9 }).map((_, index) => ({ label: index + 1, value: index }))}
-                        value={currentFloor}
-                        onChange={setCurrentFloor}
-                        size={'large'}
-                        block
-                    />
+                    <Flex justify="center" align="center">
+                        <Segmented
+                            options={Array.from({ length: 9 }).map((_, index) => ({ label: index + 1, value: index }))}
+                            value={currentFloor}
+                            onChange={setCurrentFloor}
+                            size={'large'}
+                        />
+                        <Button
+                            onClick={() => {
+                                localStorage.clear();
+                                window.location.reload();
+                            }}
+                        >
+                            Clear all
+                        </Button>
+                    </Flex>
                     <FloorContainer>
                         {floors[currentFloor].map((row, rowIndex) =>
                             row.map((tile, colIndex) => (
@@ -82,7 +91,7 @@ const TileContainer = styled.div<{ $active?: boolean; $empty?: boolean }>`
     padding: 3px;
     border-radius: 16px;
     background-color: ${({ $empty }) => ($empty ? 'rgba(74,75,71,0.7)' : 'transparent')};
-    border: 2px solid ${({ $active }) => ($active ? 'rgba(74,75,71)' : 'transparent')};
+    ${({ $active }) => ($active ? 'border: 2px solid rgba(74,75,71);' : '')}
 `;
 
 const Tile = (props: { tile?: Tile; active?: boolean } & HTMLAttributes<HTMLDivElement>) => {
