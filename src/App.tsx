@@ -55,23 +55,28 @@ const App = () => {
                                     onClick={() => {
                                         setCurrentTile([rowIndex, colIndex]);
 
-                                        tile !== tiles.up &&
-                                            updateFloors(
-                                                currentFloor,
-                                                rowIndex,
-                                                colIndex,
-                                                tile === currentTileType && tile !== tiles.down ? undefined : currentTileType
-                                            );
+                                        if (currentTileType === tiles.close) {
+                                            updateFloors(currentFloor, rowIndex, colIndex, undefined);
+                                        } else {
+                                            tile !== tiles.up &&
+                                                tile !== tiles.down &&
+                                                updateFloors(
+                                                    currentFloor,
+                                                    rowIndex,
+                                                    colIndex,
+                                                    tile === currentTileType ? undefined : currentTileType
+                                                );
 
-                                        tile === tiles.up && setCurrentFloor(currentFloor - 1);
+                                            tile === tiles.up && setCurrentFloor(currentFloor - 1);
 
-                                        if (currentFloor < 8) {
-                                            if (tile === tiles.down) {
-                                                setCurrentFloor(currentFloor + 1);
-                                            } else
-                                                currentTileType === tiles.down &&
-                                                    tile !== tiles.up &&
-                                                    updateFloors(currentFloor + 1, rowIndex, colIndex, tiles.up);
+                                            if (currentFloor < 8) {
+                                                if (tile === tiles.down) {
+                                                    setCurrentFloor(currentFloor + 1);
+                                                } else
+                                                    currentTileType === tiles.down &&
+                                                        tile !== tiles.up &&
+                                                        updateFloors(currentFloor + 1, rowIndex, colIndex, tiles.up);
+                                            }
                                         }
                                     }}
                                 />
@@ -86,7 +91,7 @@ const App = () => {
                         ))}
                     </FloorContainer>
                     <FloorContainer>
-                        {[tiles.ruby, tiles.emerald, tiles.sapphire, tiles.diamond, tiles.amber, tiles.down].map((tile) => (
+                        {[tiles.ruby, tiles.emerald, tiles.sapphire, tiles.diamond, tiles.amber, tiles.down, tiles.close].map((tile) => (
                             <Tile tile={tile} key={tile} active={tile === currentTileType} onClick={() => setCurrentTileType(tile)} />
                         ))}
                     </FloorContainer>

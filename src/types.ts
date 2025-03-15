@@ -18,6 +18,7 @@ import trice from './assets/trice.webp';
 import trilobite from './assets/trilobite.webp';
 import up from './assets/up.svg';
 import down from './assets/down.svg';
+import close from './assets/close.svg';
 
 export type Tile = string;
 
@@ -41,5 +42,6 @@ export const tiles: Record<string, Tile> = {
     ruby,
     diamond,
     up,
-    down
+    down,
+    close
 };
