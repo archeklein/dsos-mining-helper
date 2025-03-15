@@ -16,7 +16,9 @@ const App = () => {
     const { floors, updateFloors, currentFloor, setCurrentFloor, setCurrentTile, currentTileType, setCurrentTileType } = useFloorStore();
 
     return (
-        <ConfigProvider theme={{ algorithm: theme.darkAlgorithm }}>
+        <ConfigProvider
+            theme={{ algorithm: theme.darkAlgorithm, components: { Segmented: { itemSelectedBg: 'rgba(255, 255, 255, 0.4)' } } }}
+        >
             <Layout
                 style={{
                     height: '100vh',
@@ -56,6 +58,9 @@ const App = () => {
                                         setCurrentTile([rowIndex, colIndex]);
 
                                         if (currentTileType === tiles.close) {
+                                            tile === tiles.down &&
+                                                currentFloor < 8 &&
+                                                updateFloors(currentFloor + 1, rowIndex, colIndex, undefined);
                                             updateFloors(currentFloor, rowIndex, colIndex, undefined);
                                         } else {
                                             tile !== tiles.up &&
