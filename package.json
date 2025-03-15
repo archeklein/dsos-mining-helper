@@ -1,5 +1,6 @@
 {
     "name": "vite-project",
+    "homepage": "https://archeklein.github.io/dsos-mining-helper/",
     "private": true,
     "version": "0.0.0",
     "type": "module",
