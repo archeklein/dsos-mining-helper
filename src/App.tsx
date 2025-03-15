@@ -1,5 +1,7 @@
+import copper from './assets/ore-copper.webp';
+
 const App = () => {
-    return <>bonfire</>;
+    return <><img src={copper}/></>;
 };
 
 export default App;
