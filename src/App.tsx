@@ -12,8 +12,7 @@ const FloorContainer = styled.div`
 `;
 
 const App = () => {
-    const { floors, updateFloors, currentFloor, setCurrentFloor, currentTile, setCurrentTile, currentTileType, setCurrentTileType } =
-        useFloorStore();
+    const { floors, updateFloors, currentFloor, setCurrentFloor, setCurrentTile, currentTileType, setCurrentTileType } = useFloorStore();
 
     return (
         <ConfigProvider theme={{ algorithm: theme.darkAlgorithm }}>

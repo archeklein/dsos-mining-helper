@@ -18,11 +18,11 @@ export const useFloorStore = create<FloorState>((set) => ({
 
         // Create 9 floors
         for (let floor = 0; floor < 9; floor++) {
-            const currentFloor: Tile[][] = [];
+            const currentFloor: (Tile | undefined)[][] = [];
 
             // Create 7x7 grid for each floor
             for (let y = 0; y < 7; y++) {
-                const row: Tile[] = [];
+                const row: (Tile | undefined)[] = [];
                 for (let x = 0; x < 7; x++) {
                     row.push(undefined);
                 }
