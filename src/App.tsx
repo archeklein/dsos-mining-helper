@@ -4,6 +4,7 @@ import { ConfigProvider, theme, Segmented, Layout, Flex, Button } from 'antd';
 import { tiles, type Tile } from './types';
 import './App.css';
 import { HTMLAttributes } from 'react';
+import { CloseOutlined } from '@ant-design/icons';
 
 const FloorContainer = styled.div`
     display: grid;
@@ -23,25 +24,27 @@ const App = () => {
                     paddingInline: 16,
                     display: 'flex',
                     flexDirection: 'column',
-                    justifyContent: 'space-between'
+                    gap: 32
                 }}
             >
                 <Flex vertical gap={12}>
-                    <Flex justify="center" align="center">
+                    <Flex justify="center" align="center" gap={8}>
                         <Segmented
                             options={Array.from({ length: 9 }).map((_, index) => ({ label: index + 1, value: index }))}
                             value={currentFloor}
                             onChange={setCurrentFloor}
                             size={'large'}
+                            block
+                            style={{ flex: 1 }}
                         />
                         <Button
+                            type={'primary'}
+                            icon={<CloseOutlined />}
                             onClick={() => {
                                 localStorage.clear();
                                 window.location.reload();
                             }}
-                        >
-                            Clear all
-                        </Button>
+                        ></Button>
                     </Flex>
                     <FloorContainer>
                         {floors[currentFloor].map((row, rowIndex) =>
@@ -51,7 +54,25 @@ const App = () => {
                                     key={`${rowIndex}-${colIndex}`}
                                     onClick={() => {
                                         setCurrentTile([rowIndex, colIndex]);
-                                        updateFloors(rowIndex, colIndex, currentTileType);
+
+                                        tile !== tiles.up &&
+                                            updateFloors(
+                                                currentFloor,
+                                                rowIndex,
+                                                colIndex,
+                                                tile === currentTileType && tile !== tiles.down ? undefined : currentTileType
+                                            );
+
+                                        tile === tiles.up && setCurrentFloor(currentFloor - 1);
+
+                                        if (currentFloor < 8) {
+                                            if (tile === tiles.down) {
+                                                setCurrentFloor(currentFloor + 1);
+                                            } else
+                                                currentTileType === tiles.down &&
+                                                    tile !== tiles.up &&
+                                                    updateFloors(currentFloor + 1, rowIndex, colIndex, tiles.up);
+                                        }
                                     }}
                                 />
                             ))
@@ -65,7 +86,7 @@ const App = () => {
                         ))}
                     </FloorContainer>
                     <FloorContainer>
-                        {[tiles.ruby, tiles.emerald, tiles.sapphire, tiles.diamond, tiles.amber].map((tile) => (
+                        {[tiles.ruby, tiles.emerald, tiles.sapphire, tiles.diamond, tiles.amber, tiles.down].map((tile) => (
                             <Tile tile={tile} key={tile} active={tile === currentTileType} onClick={() => setCurrentTileType(tile)} />
                         ))}
                     </FloorContainer>

@@ -3,7 +3,7 @@ import { Tile, tiles } from './types';
 
 interface FloorState {
     floors: (Tile | undefined)[][][];
-    updateFloors: (row: number, col: number, tile: Tile) => void;
+    updateFloors: (floor: number, row: number, col: number, tile: Tile | undefined) => void;
     currentFloor: number;
     setCurrentFloor: (floor: number) => void;
     currentTile: [number, number];
@@ -37,10 +37,10 @@ export const useFloorStore = create<FloorState>((set) => ({
 
         return newFloors;
     })(),
-    updateFloors: (row, col, tile) =>
+    updateFloors: (floor, row, col, tile) =>
         set((state) => {
             const floors = state.floors.slice();
-            floors[state.currentFloor][row][col] = tile;
+            floors[floor][row][col] = tile;
 
             localStorage.setItem('floors', JSON.stringify(floors));
 

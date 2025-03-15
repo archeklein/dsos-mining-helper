@@ -16,6 +16,8 @@ import stone from './assets/stone.webp';
 import trex from './assets/trex.webp';
 import trice from './assets/trice.webp';
 import trilobite from './assets/trilobite.webp';
+import up from './assets/up.svg';
+import down from './assets/down.svg';
 
 export type Tile = string;
 
@@ -37,5 +39,7 @@ export const tiles: Record<string, Tile> = {
     emerald,
     sapphire,
     ruby,
-    diamond
+    diamond,
+    up,
+    down
 };
